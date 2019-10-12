@@ -1,10 +1,19 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom'
 
-const Header = (props) => {
+const Header = ({match}) => {
     return (
         <div>
-          <Link to ='/dashboard'>Dashboard</Link>
+          <p>
+          <Link to ='/dashboard'>Home</Link>
+          </p>
+          
+          <p>
+          <Link to ='/create'>Create</Link>
+          </p>
+          <p>
+         <Link to ='/dashboard'>Dashboard</Link>
+         </p>
         </div>
        
     );
