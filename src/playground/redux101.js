@@ -1,8 +1,3 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## BASICS OF REDUX
-
-```js
 import React from 'react';
 import {createStore} from 'redux'
 
@@ -77,4 +72,3 @@ const Redux101 = (props) => {
 };
 
 export default Redux101;
-```
