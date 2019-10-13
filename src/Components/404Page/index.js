@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NoteFound = (props) => {
+const NoteFound = () => {
     return (
         
         <div>

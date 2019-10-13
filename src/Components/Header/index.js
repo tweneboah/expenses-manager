@@ -1,13 +1,15 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 
-const Header = ({match}) => {
+const Header = () => {
     return (
         <div>
           <p>
-          <Link to ='/dashboard'>Home</Link>
+          <Link to ='/'>Home</Link>
           </p>
-          
+          <p>
+          <Link to ='/notes'>Notes</Link>
+          </p>
           <p>
           <Link to ='/create'>Create</Link>
           </p>
@@ -19,4 +21,4 @@ const Header = ({match}) => {
     );
 };
 
-export default withRouter(Header);
+export default Header;
