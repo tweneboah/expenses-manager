@@ -41,10 +41,12 @@ const Info = ({info, isAdmin, password, fullname}) => {
   );
 };
 
+```
 //This will render/call a component and it will inject many functions and props to the component it's rendering
 
 //The argument passed in represent the component it's rendering
 
+```js
 const WithAdminWarning = WrappedComponent => {
   //Returning the component. Remember return a jsx which is the component
 
@@ -65,6 +67,9 @@ const WithAdminWarning = WrappedComponent => {
   );
 };
 
+```
+
+```js
 //Rendering a componet
 //The output of this results is the alternative version of component info
 const AdminInfo = WithAdminWarning(Info);
