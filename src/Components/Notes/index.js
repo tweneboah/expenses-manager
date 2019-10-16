@@ -12,6 +12,8 @@ const Notes = (props) => {
                <li>Actions can send data to reducers by allowing the user to pass in data to the reducer or by the action strictly sending from a server to the store</li>
            </ul>
                 <a href ='https://github.com/tweneboah/react-redux-complete-guide/wiki/Expenses-Manager-App' target ='_blank' rel="noopener noreferrer">Actions</a>
+
+                
         </div>
         
     );

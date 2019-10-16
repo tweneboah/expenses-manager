@@ -7,27 +7,6 @@ import uuid from 'uuid'
 
 //NOTE:
 
-// export const addExpenses = ({
-//     description,
-//     note = "Enter Note",
-//     amount = "Enter amount",
-//     createdAt = "20/2/2019",
-//     year
-//   }) => {
-//     return {
-//       type: "ADD_EXPENSE",
-//       expenses: {
-//         id: uuid(),
-//         description: description,
-//         note: note,
-//         amount: amount,
-//         createdAt: createdAt,
-//         year
-//       }
-//     };
-//   };
-  
-
 
 //ADD_EXPENSE ACTION
 export const addExpense = ({ description = '', note = '',  amount = 0, createdAt = 0 } ={}) => {
@@ -48,7 +27,7 @@ export const addExpense = ({ description = '', note = '',  amount = 0, createdAt
   export const removeExpense = ({id} ={}) => {
     return {
       type: 'REMOVE_EXPENSE',
-      id
+      id: id
     }
   }
   

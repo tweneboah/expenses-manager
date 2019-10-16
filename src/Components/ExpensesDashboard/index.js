@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-
+import ExpensesList from '../ExpensesList';
 class ExpensesDashboard extends Component {
 
     render() {
         return (
-            <h1>ExpensesDashboard</h1>
+            <div>
+                <h1>ExpensesDashboard</h1>
+             <ExpensesList/>
+            </div>
         );
     }
 }

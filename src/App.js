@@ -10,7 +10,7 @@ import CreateExpenses from "./Components/CreateExpenses";
 import EditExpenses from "./Components/EditExpenses";
 import Header from "./Components/Header";
 import Notes from "./Components/Notes";
-import Hoc from './hoc/hoc';
+import PracticeRedux from './playground/practiceRedux'
 
 
 
@@ -21,9 +21,7 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <Header />
-       
-          <Hoc />
-    
+      <PracticeRedux/>
           <Switch>
             <Route exact path="/dashboard" component={ExpensesDashboard} />
 

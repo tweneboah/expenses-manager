@@ -3,7 +3,7 @@ import expensesReducer from './expenses-reducers';
 import filterReducer from './filters-reducers'
 
 const rootReducer = combineReducers({
-  expense: expensesReducer,
+  expenses: expensesReducer,
   filters: filterReducer
 });
 

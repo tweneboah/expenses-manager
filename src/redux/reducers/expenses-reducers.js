@@ -11,4 +11,4 @@ const expenseReducer = (state = expensesDefaultState, action) => {
   }
 };
 
-export default expenseReducer
+export default expenseReducer;
