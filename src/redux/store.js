@@ -1,11 +1,12 @@
 import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducers/root-reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { addExpense } from "./actions/expenses-actions";
-import { setTextFilter, sortByAmount, setStartDate } from "./actions/filters-actions";
+import { addExpense, } from "./actions/expenses-actions";
+
 //STORE
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware()));
+
 
 store.dispatch(
   addExpense({
@@ -30,7 +31,7 @@ store.dispatch(
   addExpense({
     description: "React js const",
     amount: 900,
-    createdAt: 123,
+    createdAt: 50000000,
     note: "It's really expensive"
   })
 );
@@ -45,8 +46,6 @@ store.dispatch(
   })
 );
 
-
-store.dispatch(sortByAmount())
 
 
 export default store;

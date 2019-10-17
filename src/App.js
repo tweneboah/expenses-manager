@@ -10,18 +10,17 @@ import CreateExpenses from "./Components/CreateExpenses";
 import EditExpenses from "./Components/EditExpenses";
 import Header from "./Components/Header";
 import Notes from "./Components/Notes";
-import PracticeRedux from './playground/practiceRedux'
+
 
 
 
 function App() {
-  console.log(store.getState());
   return (
     <Provider store={store}>
       <div className="App">
         <BrowserRouter>
           <Header />
-      <PracticeRedux/>
+   
           <Switch>
             <Route exact path="/dashboard" component={ExpensesDashboard} />
 

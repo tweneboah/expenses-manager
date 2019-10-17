@@ -2,7 +2,7 @@
 
 const filtersDefaultState = {
   text: "",
-  sortBy: "date", //date or amount
+  sortBy: "", //date or amount
   startDate: undefined,
   endDate: undefined
 };
@@ -12,8 +12,9 @@ const filtersReducer = (state = filtersDefaultState, action) => {
     case "SORT_BY_DATE":
       return {
         ...state,
-        sortBy: "date"
+        sortBy: 'date'
       };
+      
     case "SET_TEXT_FILTER":
       return {
         ...state,

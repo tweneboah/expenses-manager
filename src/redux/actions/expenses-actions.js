@@ -9,13 +9,13 @@ import uuid from 'uuid'
 
 
 //ADD_EXPENSE ACTION
-export const addExpense = ({ description = '', note = '',  amount = 0, createdAt = 0 } ={}) => {
+export const addExpense = ({ description = '', notes = '',  amount = 0, createdAt = 0 } ={}) => {
     return {
       type: 'ADD_EXPENSE',
       payload: {
         id: uuid(),
         description,
-        note,
+        notes,
         amount, 
         createdAt
   
@@ -24,14 +24,25 @@ export const addExpense = ({ description = '', note = '',  amount = 0, createdAt
   }
   //REMOVE_EXPENSE ACTION
   
-  export const removeExpense = ({id} ={}) => {
-    return {
-      type: 'REMOVE_EXPENSE',
-      id: id
-    }
+  // export const removeExpense = ({ id } = {}) => ({
+  //   type: 'REMOVE_EXPENSE',
+  //   id
+  // });
+  
+  // export const removeExpense = ({ id } = {}) => ({
+  //   type: 'REMOVE_EXPENSE',
+  //   id
+  // });
+
+  export const removeExpense = ({id}) => {
+  return {
+    type : 'REMOVE_EXPENSE',
+     payload : {
+       id: id
+     }
   }
-  
-  
+  }
+
   //EDIT_EXPENSE
   export const editExpense = (id, updates)=>{
     return {

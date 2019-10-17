@@ -9,7 +9,14 @@ export const setTextFilter = (text = "") => {
   //SORT BY DATE
   
   //This action won't accept any value but it will display a static value so we don't pass anything to it
+    //SORT BY AMOUNT
   
+ export const sortByDate = () => {
+  return {
+    type: "SORT_BY_DATE",
+    
+  };
+};
 
   
   //SORT BY AMOUNT

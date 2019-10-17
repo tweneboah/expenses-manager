@@ -22,7 +22,7 @@ const PracticeRedux = (props) => {
            return yes && yes2
         });
 
-        console.log('money', money)
+        console.log(money)
     }
 
     filterAmount()

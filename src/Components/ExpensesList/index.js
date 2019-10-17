@@ -5,7 +5,7 @@ import selectedMethod from '../../selectors/expenses-selectors';
 import ExpenseListFilters from '../ExpenseListFilters'
 
 const ExpensesList = ({expenses}) => {
-    console.log('ExpensesList', expenses)
+
     return (
         <div>
             <h1>ExpensesList</h1>
@@ -19,7 +19,8 @@ const ExpensesList = ({expenses}) => {
 };
 
 const mapStateToProps = (state) => {
-    console.log('MAP', state)
+    
+
     return {
         expenses: selectedMethod(state.expenses, state.filters)
     }
