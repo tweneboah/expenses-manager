@@ -7,9 +7,9 @@ import ExpenseListFilters from "../ExpenseListFilters";
 const ExpensesList = ({ expenses }) => {
   return (
     <div>
-      <h1>ExpensesList</h1>
+      <h1>Total Expenses : {expenses.length}</h1>
       <ExpenseListFilters />
-      <p>Total Expenses : {expenses.length}</p>
+      <p></p>
       {expenses.map(expense => (
         <ExpensesListItem key={expense.id} expense={expense} />
       ))}

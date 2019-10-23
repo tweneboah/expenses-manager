@@ -11,19 +11,20 @@ const ExpensesListItem = ({ expense }) => {
           <h3>{expense.description}</h3>
         </Link>
       </div>
-      <p>Amount: {expense.amount}</p>
 
-      {/* <p>Created At: {expense.createdAt}</p> */}
+      {/*
+      
+      <p>Created At: {expense.createdAt}</p> */}
 
       {/* Format date to use moment for nice display
         Remember that moment requires timeStamp so we will pass createdAt to it
       */}
 
-      <p>
+      <h5>
         {/* Using numeraljs to format money */}
-        Amount: {numeral(expense.amount).format("$0,0.00")} -
+        {numeral(expense.amount).format("$0,0.00")} -
         {moment(expense.createdAt).format("MMM Do, YYYY")}
-      </p>
+      </h5>
     </div>
   );
 };

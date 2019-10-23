@@ -5,7 +5,7 @@ const Landing = props => {
   return (
     <div className="container-wrapper">
       <div className="wrapper">
-        <h1>Welcome to Expensify</h1>
+        <h1>Welcome to HicoTek Expensify App</h1>
         <div>
           <Link className="btn btn-danger btn-lg" to="/create">
             Create an Expense
