@@ -1,4 +1,4 @@
-import uuid from 'uuid'
+import uuid from "uuid";
 //ACTIONS
 
 //Actions make changes to redux store through reducers.
@@ -7,48 +7,48 @@ import uuid from 'uuid'
 
 //NOTE:
 
-
 //ADD_EXPENSE ACTION
-export const addExpense = ({ description = '', notes = '',  amount = 0, createdAt = 0 } ={}) => {
-    return {
-      type: 'ADD_EXPENSE',
-      payload: {
-        id: uuid(),
-        description,
-        notes,
-        amount, 
-        createdAt
-  
-      }
-    }
-  }
-  //REMOVE_EXPENSE ACTION
-  
-  // export const removeExpense = ({ id } = {}) => ({
-  //   type: 'REMOVE_EXPENSE',
-  //   id
-  // });
-  
-  // export const removeExpense = ({ id } = {}) => ({
-  //   type: 'REMOVE_EXPENSE',
-  //   id
-  // });
-
-  export const removeExpense = ({id}) => {
+export const addExpense = ({
+  description = "",
+  notes = "",
+  amount = 0,
+  createdAt = 0
+} = {}) => {
   return {
-    type : 'REMOVE_EXPENSE',
-     payload : {
-       id: id
-     }
-  }
-  }
-
-  //EDIT_EXPENSE
-  export const editExpense = (id, updates)=>{
-    return {
-      type: 'EDIT_EXPENSE',
-      id,
-      updates
+    type: "ADD_EXPENSE",
+    payload: {
+      id: uuid(),
+      description,
+      notes,
+      amount,
+      createdAt
     }
-  }
-  
+  };
+};
+//REMOVE_EXPENSE ACTION
+
+export const removeExpense = ({ id }) => {
+  return {
+    type: "REMOVE_EXPENSE",
+    payload: {
+      id: id
+    }
+  };
+};
+
+//EDIT_EXPENSE
+export const editExpense = (id, updates) => {
+  return {
+    type: "EDIT_EXPENSE",
+    id,
+    updates
+  };
+};
+
+//TOTAL EXPENSES
+
+export const totalExpenses = () => {
+  return {
+    type: "TOTAL_EXPNESE"
+  };
+};

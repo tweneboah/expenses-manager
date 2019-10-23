@@ -1,0 +1,15 @@
+.container-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: rgb(92, 150, 92);
+  font-size: 20px;
+}
+
+.wrapper h1 {
+  color: rgb(186, 203, 218);
+  font-size: 2em;
+  padding: 10px;
+  box-shadow: 10px;
+}

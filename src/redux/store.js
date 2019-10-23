@@ -1,12 +1,11 @@
 import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducers/root-reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { addExpense, } from "./actions/expenses-actions";
+import { addExpense } from "./actions/expenses-actions";
 
 //STORE
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware()));
-
 
 store.dispatch(
   addExpense({
@@ -26,7 +25,6 @@ store.dispatch(
   })
 );
 
-
 store.dispatch(
   addExpense({
     description: "React js const",
@@ -36,7 +34,6 @@ store.dispatch(
   })
 );
 
-
 store.dispatch(
   addExpense({
     description: "How to kill node Js",
@@ -45,7 +42,5 @@ store.dispatch(
     note: "Paid 2"
   })
 );
-
-
 
 export default store;

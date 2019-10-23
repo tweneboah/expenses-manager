@@ -1,15 +1,20 @@
-import React, { Component } from 'react';
-import ExpensesList from '../ExpensesList';
-class ExpensesDashboard extends Component {
+import React, { Component } from "react";
+import ExpensesList from "../ExpensesList";
+import { totalExpenses } from "../../redux/actions/expenses-actions";
+import { connect } from "react-redux";
 
-    render() {
-        return (
-            <div>
-                <h1>ExpensesDashboard</h1>
-             <ExpensesList/>
-            </div>
-        );
-    }
+class ExpensesDashboard extends Component {
+  render() {
+    return (
+      <div>
+        <h1>ExpensesDashboard</h1>
+        <ExpensesList />
+      </div>
+    );
+  }
 }
 
-export default ExpensesDashboard;
+export default connect(
+  null,
+  totalExpenses
+)(ExpensesDashboard);

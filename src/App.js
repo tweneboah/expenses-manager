@@ -8,20 +8,17 @@ import "./App.css";
 import ExpensesDashboard from "./Components/ExpensesDashboard";
 import CreateExpenses from "./Components/CreateExpenses";
 import EditExpenses from "./Components/EditExpenses";
-import Header from "./Components/Header";
+
 import Notes from "./Components/Notes";
-
-
-
+import Landing from "./Components/Landing";
 
 function App() {
   return (
     <Provider store={store}>
       <div className="App">
         <BrowserRouter>
-          <Header />
-   
           <Switch>
+            <Route exact path="/" component={Landing} />
             <Route exact path="/dashboard" component={ExpensesDashboard} />
 
             <Route exact path="/create" component={CreateExpenses} />
