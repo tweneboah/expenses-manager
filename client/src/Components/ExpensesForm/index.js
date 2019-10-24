@@ -3,7 +3,7 @@ import moment from "moment";
 import "react-dates/initialize";
 import { SingleDatePicker } from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
-
+import axios from "axios";
 class ExpensesForm extends Component {
   //We are reconstructing our state because we want to add eit function into it. all what it means is that if there is no data found by that id we will use the default data to avoid errors
 
@@ -74,21 +74,24 @@ class ExpensesForm extends Component {
       });
       console.log("ERROR");
     } else {
-      this.props.onSubmit({
-        //Remember that this action creater receives object as argument
-
-        //We have to convert the values coming from the form to proper format for example the createdAt field this contains a whole bunch of methods and properties so we will use moment.valueOf() to get the actual date in a number format
-
-        description: this.state.description,
-        amount: parseFloat(this.state.amount, 10) * 100,
-        createdAt: this.state.createdAt.valueOf(), //this is from moment for us to get the value as a number
-        notes: this.state.notes
+      axios.post("http://localhost:5000/expenses", this.state).then(res => {
+        console.log("axios", this.state);
       });
+      // this.props.onSubmit({
+      //   //Remember that this action creater receives object as argument
 
-      //clear error
-      this.setState({
-        error: ""
-      });
+      //   //We have to convert the values coming from the form to proper format for example the createdAt field this contains a whole bunch of methods and properties so we will use moment.valueOf() to get the actual date in a number format
+
+      //   description: this.state.description,
+      //   amount: parseFloat(this.state.amount, 10) * 100,
+      //   createdAt: this.state.createdAt.valueOf(), //this is from moment for us to get the value as a number
+      //   notes: this.state.notes
+      // });
+
+      // //clear error
+      // this.setState({
+      //   error: ""
+      // });
     }
   };
   render() {
