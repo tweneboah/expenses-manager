@@ -6,6 +6,7 @@ import "./App.css";
 
 //Components
 import CreateExpense from './Components/CreateExpenses'
+import ExpensesList from './Components/ExpensesList'
 
 class App extends Component {
 
@@ -14,9 +15,10 @@ class App extends Component {
       <Provider store={store}>
         <div className="App">
           <BrowserRouter>
-            <CreateExpense />
+
             <Switch>
-              <Route exact path="/" component={CreateExpense} />
+              <Route exact path="/create" component={CreateExpense} />
+              <Route exact path="/list" component={ExpensesList} />
             </Switch>
           </BrowserRouter>
         </div>

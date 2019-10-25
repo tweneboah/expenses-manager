@@ -6,11 +6,12 @@ import "react-dates/lib/css/_datepicker.css";
 import { addExpense, fetchExpenses } from '../../redux/actions/expenses-actions';
 import store from '../../redux/store'
 import { connect } from 'react-redux';
+
 class CreateExpenses extends Component {
 
 
     state = {
-        description: 'rtyty',
+        description: '',
         amount: '',
         notes: '',
         createdAt: moment(),
@@ -54,8 +55,12 @@ class CreateExpenses extends Component {
 
     onFormSubmit = e => {
         e.preventDefault();
+        //Calling the addExpense Action. Remember that for the date we need a number to comapre date range and also the mongoose createdAt date field also requires a number so we have to convert the value from the date which gives something like this 20.2.10
         store.dispatch(addExpense({
-            createdAt: this.state.createdAt.valueOf()
+            description: this.state.description,
+            createdAt: this.state.createdAt.valueOf(),
+            notes: this.state.notes,
+            amount: this.state.amount
         }));
         store.dispatch(fetchExpenses())//This will gives live update of listing without refreshing
 
@@ -68,7 +73,7 @@ class CreateExpenses extends Component {
 
     render() {
 
-        console.log('From props', this.props)
+
         return (
             <div>
                 <h1>Create Expenses</h1>
@@ -110,27 +115,13 @@ class CreateExpenses extends Component {
           </button>
                 </form>
 
-                <h1>List of expenses</h1>
-                {this.props.expensesFromCreateExpComponent.length}
 
-                {this.props.expensesFromCreateExpComponent.map((expense) => {
-                    return (
-                        <div>
-                            <h3>{expense.description}</h3>
-                            <h5>{moment(expense.createdAt).format("MMM Do, YYYY")}</h5>
-                        </div>
-                    )
-                })}
 
             </div>
         );
     }
 }
 
-const mapStateToprops = (state) => {
-    return {
-        expensesFromCreateExpComponent: state.expensesRootReducer.expenses
-    }
-}
 
-export default connect(mapStateToprops, { fetchExpenses })(CreateExpenses);
+
+export default connect(null, { fetchExpenses })(CreateExpenses);
