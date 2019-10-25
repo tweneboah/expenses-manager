@@ -1,13 +1,23 @@
 //Expenses Reducers
 
-const expensesDefaultState = [];
+const expensesDefaultState = {
+  expenses: []
+};
+
 const expenseReducer = (state = expensesDefaultState, action) => {
   switch (action.type) {
     case "ADD_EXPENSE":
-      return [...state, action.payload];
+      return {
+        ...state,
+        expenses: [...state.expenses, action.payload]
+        //NOTE: If the property is the same as the one in the defaultState, it will override otherwise it will add a new property to this array
+      };
 
-    case "REMOVE_EXPENSE":
-      return state.filter(exp => exp.id !== action.payload.id);
+    case "FETCH":
+      return {
+        ...state,
+        expenses: action.payload
+      };
 
     case "EDIT_EXPENSE":
       return state.map(expense => {
@@ -21,14 +31,6 @@ const expenseReducer = (state = expensesDefaultState, action) => {
         }
       });
 
-    case "TOTAL_EXPNESE":
-      return state
-        .map(expense => {
-          return expense.amount;
-        })
-        .reduce((acc, val) => {
-          return acc + val;
-        }, 0);
     default:
       return state;
   }

@@ -3,8 +3,9 @@ import expensesReducer from "./expenses-reducers";
 import filterReducer from "./filters-reducers";
 
 const rootReducer = combineReducers({
-  expenses: expensesReducer,
-  filters: filterReducer
+  expensesRootReducer: expensesReducer,
+  filterReducer: filterReducer
+
 });
 
 export default rootReducer;
