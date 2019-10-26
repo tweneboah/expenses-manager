@@ -30,6 +30,18 @@ if (app.get('env') === 'development') {
     .then(() => console.log("DB Connected successfully"));
 
 }
+
+
+  //SERVING REACT FILES
+  app.use(express.static(path.join(__dirname, 'client/build')));
+
+
+app.get("/", (req, res) => {
+  res.send("HICOTEK GHANA");
+});
+
+
+
 //MIDDLEWARE
 app.use(bodyParser.urlencoded({ extended: true })); //Help to pass data through form
 app.use(bodyParser.json()); //Display json format
@@ -37,6 +49,13 @@ app.use(bodyParser.json()); //Display json format
 
 //USING ROUTES
 app.use("/", expensesRoute);
+
+
+
+// Right before your app.listen(), add this:
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+}); 
 
 //SERVER
 const PORT = process.env.PORT || 8080;
