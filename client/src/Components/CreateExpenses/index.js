@@ -3,7 +3,7 @@ import moment from 'moment';
 import "react-dates/initialize";
 import { SingleDatePicker } from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
-import { addExpense, fetchExpenses } from '../../redux/actions/expenses-actions';
+import { addExpense } from '../../redux/actions/expenses-actions';
 import store from '../../redux/store'
 import { connect } from 'react-redux';
 
@@ -62,14 +62,14 @@ class CreateExpenses extends Component {
             notes: this.state.notes,
             amount: this.state.amount
         }));
-        store.dispatch(fetchExpenses())//This will gives live update of listing without refreshing
+        // store.dispatch(fetchExpenses())//This will gives live update of listing without refreshing
 
     };
 
 
-    componentDidMount() {
-        store.dispatch(fetchExpenses())
-    }
+    // componentDidMount() {
+    //     store.dispatch(fetchExpenses())
+    // }
 
     render() {
 
@@ -124,4 +124,4 @@ class CreateExpenses extends Component {
 
 
 
-export default connect(null, { fetchExpenses })(CreateExpenses);
+export default connect(null)(CreateExpenses);
