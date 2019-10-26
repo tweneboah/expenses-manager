@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const path = require('path')
 
 //Routes
 const expensesRoute = require("./routes/expensesRoute");
@@ -32,8 +33,8 @@ if (app.get('env') === 'development') {
 }
 
 
-  //SERVING REACT FILES
-  app.use(express.static(path.join(__dirname, 'client/build')));
+//SERVING REACT FILES
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 
 app.get("/", (req, res) => {
@@ -55,7 +56,7 @@ app.use("/", expensesRoute);
 // Right before your app.listen(), add this:
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-}); 
+});
 
 //SERVER
 const PORT = process.env.PORT || 8080;
