@@ -1,31 +1,15 @@
-import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import store from "./redux/store";
-import { Provider } from "react-redux";
-import "./App.css";
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
 
-//Components
-import CreateExpense from './Components/CreateExpenses'
-import ExpensesList from './Components/ExpensesList'
-
-class App extends Component {
-
-  render() {
-    return (
-      <Provider store={store}>
-        <div className="App">
-          <BrowserRouter>
-
-            <Switch>
-              <Route exact path="/" component={CreateExpense} />
-              <Route exact path="/list" component={ExpensesList} />
-            </Switch>
-          </BrowserRouter>
-        </div>
-      </Provider>
-    );
-  }
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h1>Xpensify Manager</h1>
+      </header>
+    </div>
+  );
 }
 
 export default App;
-
