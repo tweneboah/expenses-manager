@@ -1,14 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import store from "./redux/store";
+import { Provider } from "react-redux";
+import "./App.css";
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Xpensify Manager</h1>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <BrowserRouter>
+          <Switch>
+
+
+            <Route exact path="/" />
+
+
+          </Switch>
+        </BrowserRouter>
+      </div>
+    </Provider>
   );
 }
 
