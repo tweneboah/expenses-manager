@@ -3,7 +3,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import store from "./redux/store";
 import { Provider } from "react-redux";
 import "./App.css";
-
+//CUSTOM COMPONENTS
+import Landing from './Components/Landing'
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
           <Switch>
 
 
-            <Route exact path="/" />
+            <Route exact path="/" component={Landing} />
 
 
           </Switch>
