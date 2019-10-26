@@ -7,6 +7,7 @@ import "./App.css";
 import Landing from './Components/Landing'
 import Header from './Components/Header'
 import ExpensesList from './Components/ExpensesList'
+import CreateExpenses from './Components/CreateExpenses'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Landing} />
             <Route exact path="/list" component={ExpensesList} />
+            <Route exact path="/create" component={CreateExpenses} />
           </Switch>
         </BrowserRouter>
       </div>

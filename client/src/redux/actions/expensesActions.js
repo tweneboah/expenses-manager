@@ -1,4 +1,4 @@
-import uuid from 'uuid'
+
 import axios from "axios";
 //ACTIONS
 
@@ -31,14 +31,15 @@ export const fetchExpenses = () => {
 };
 //REMOVE_EXPENSE ACTION
 
-export const removeExpense = ({ id }) => {
-    return {
-        type: "REMOVE_EXPENSE",
-        payload: {
-            id: id
-        }
-    };
-};
+export const deleteExpense = (id) => {
+    return ((dispatch) => {
+        axios.delete(`/api/expenses/${id}`).then(() => {
+            dispatch({
+                type: 'DELETE_EXPENSE'
+            })
+        })
+    })
+}
 
 //EDIT_EXPENSE
 export const editExpense = (id, updates) => {

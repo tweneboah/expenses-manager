@@ -7,7 +7,10 @@ const expensesDefaultState = {
 const expenseReducer = (state = expensesDefaultState, action) => {
     switch (action.type) {
         case "ADD_EXPENSE":
-            return [...state, action.payload];
+            return {
+                ...state,
+                expenses: action.payload
+            };
 
         case "FETCH_EXPENSES":
             return {

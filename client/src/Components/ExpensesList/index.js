@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import store from '../../redux/store'
 //CUSTOM COMPONENTS
-import { fetchExpenses } from '../../redux/actions/expensesActions';
+import { fetchExpenses, deleteExpense } from '../../redux/actions/expensesActions';
 import { setTextFilter } from '../../redux/actions/expensesFilterAction';
 import getVisibleExpenses from '../../utils/getVisibleExpenses';
 
 class ExpensesList extends Component {
     componentDidMount() {
-        this.props.dispatch(fetchExpenses());
+        store.dispatch(fetchExpenses());
         //Calling the setTextFilter
-        this.props.dispatch(setTextFilter('rent'))
+        this.props.dispatch(setTextFilter(''))
     }
 
     render() {
@@ -32,6 +32,18 @@ class ExpensesList extends Component {
 
             < div >
                 <h1>Expenses List</h1>
+                {this.props.filteredExpenses ? this.props.filteredExpenses.map((expense) => {
+                    return (
+                        <div key={expense._id}>
+                            <h3>{expense.description}</h3>
+                            <p>{expense.amount}</p>
+                            <p>{expense.notes}</p>
+                            <button onClick={() => store.dispatch(deleteExpense(expense._id))
+                            }>Delete</button>
+                            <hr />
+                        </div>
+                    )
+                }) : 'Loading'}
             </div >
         );
     }
@@ -39,8 +51,8 @@ class ExpensesList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        expenses: state,
-        visible2: getVisibleExpenses(state.expensesRootReducer.expenses, state.filters)
+
+        filteredExpenses: getVisibleExpenses(state.expensesRootReducer.expenses, state.filters)
     }
 }
 export default connect(mapStateToProps)(ExpensesList);

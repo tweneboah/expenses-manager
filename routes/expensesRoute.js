@@ -29,4 +29,16 @@ expensesRoute.get("/api/expenses", (req, res) => {
     });
 });
 
+
+//DELETE EXPENSES ROUTE
+
+expensesRoute.delete('/api/expenses/:id', (req, res) => {
+    Expense.findByIdAndRemove(req.params.id, (err, deletedExpense) => {
+        if (err) {
+            return res.json({ err })
+        } else {
+            return res.json('Item deleted Successfully')
+        }
+    })
+})
 module.exports = expensesRoute;
