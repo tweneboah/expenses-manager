@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
-import expensesReducer from "./expensesFiltersReducers";
+import expensesRootReducer from "./expensesReducers";
 import filterReducer from "./expensesFiltersReducers";
 
 const rootReducer = combineReducers({
-    expenses: expensesReducer,
-    //filters: filterReducer
+    expensesRootReducer,
+    filters: filterReducer
 });
 
 export default rootReducer;

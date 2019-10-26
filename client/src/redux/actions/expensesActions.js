@@ -1,4 +1,4 @@
-
+import uuid from 'uuid'
 import axios from "axios";
 //ACTIONS
 
@@ -6,31 +6,9 @@ import axios from "axios";
 //Action holds the data to be added to redux store through reducers
 //Actions can send data to reducers by allowing the user to pass in data to the reducer or by the action strictly sending from a server to the store
 
-//NOTE:
-
-//ADD_EXPENSE ACTION
-// export const addExpense = ({
-//   description = "",
-//   notes = "",
-//   amount = 0,
-//   createdAt = 0
-// } = {}) => {
-//   return {
-//     type: "ADD_EXPENSE",
-//     payload: {
-//       id: uuid(),
-//       description,
-//       notes,
-//       amount,
-//       createdAt
-//     }
-//   };
-// };
 
 export const addExpense = (formData) => {
     return dispatch => {
-
-
         axios.post("api/expenses", formData).then(() => {
             return dispatch({
                 type: "ADD_EXPENSE",
@@ -39,6 +17,7 @@ export const addExpense = (formData) => {
         });
     };
 };
+
 
 export const fetchExpenses = () => {
     return dispatch => {
