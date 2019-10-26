@@ -24,7 +24,7 @@ app.use(cors());
 //USING ROUTES
 app.use("/", expensesRoute);
 app.get("/", (req, res) => {
-  res.send("Welcome HiCotek Home");
+  res.send("Welcome HiCotek Home Akaris ");
 });
 
 //SERVER
