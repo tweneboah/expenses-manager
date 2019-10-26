@@ -18,19 +18,6 @@ const expenseReducer = (state = expensesDefaultState, action) => {
         ...state,
         expenses: action.payload
       };
-
-    case "EDIT_EXPENSE":
-      return state.map(expense => {
-        if (expense.id === action.id) {
-          return {
-            ...expense,
-            ...action.updates
-          };
-        } else {
-          return expense;
-        }
-      });
-
     default:
       return state;
   }

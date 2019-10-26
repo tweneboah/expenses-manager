@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { fetchExpenses } from '../../redux/actions/expenses-actions'
-import expensesSlectors from '../../utils/expensesFilters'
-
 
 class ExpensesList extends Component {
-    componentDidMount() {
-        this.props.dispatch(fetchExpenses())
-    }
+
     render() {
         console.log(this.props.expenses)
         return (
@@ -29,7 +24,7 @@ class ExpensesList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        expenses: expensesSlectors(state.expensesRootReducer.expenses, 'r')
+        expenses: state
     }
 }
 export default connect(mapStateToProps)(ExpensesList);
