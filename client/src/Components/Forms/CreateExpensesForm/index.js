@@ -45,7 +45,7 @@ class ExpensesForm extends Component {
         return (
             <div>
                 <h3>ExpensesForm</h3>
-                <h2>Visit your Dashboard <a href='http://localhost:3000/dashboard'>Dashboard</a></h2>
+                <h2>Visit your Dashboard <a href='/dashboard'>Dashboard</a></h2>
                 <form>
                     <input
                         type="text"
