@@ -9,10 +9,8 @@ class CreateExpenses extends Component {
         return (
             <div>
                 <h1>Create Expenses</h1>
-                <ExpenseForm emma={expense => {
+                <ExpenseForm onFormSubmit={expense => {
                     store.dispatch(addExpense(expense))
-
-
                 }} />
             </div>
         );

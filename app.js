@@ -32,16 +32,8 @@ if (app.get('env') === 'development') {
 
 }
 
-
 //SERVING REACT FILES
 app.use(express.static(path.join(__dirname, 'client/build')));
-
-
-app.get("/", (req, res) => {
-  res.send("HICOTEK GHANA");
-});
-
-
 
 //MIDDLEWARE
 app.use(bodyParser.urlencoded({ extended: true })); //Help to pass data through form

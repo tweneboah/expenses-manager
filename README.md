@@ -1,7 +1,9 @@
 
 ### Current state of the app
-[Xpensify-Manager](https://xpensify-manager.herokuapp.com/)
-## Languages used
+
+## Click to visis [Xpensify-Manager](https://xpensify-manager.herokuapp.com/)
+
+# Languages used
 
 * React Js
 * Redux 

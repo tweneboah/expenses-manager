@@ -24,6 +24,7 @@ function App() {
             <Route exact path="/" component={Landing} />
 
             <Route exact path="/create" component={CreateExpenses} />
+            <Route exact path="/list" component={ExpensesList} />
             <Route exact path="/dashboard" component={Dashboard} />
           </Switch>
         </BrowserRouter>

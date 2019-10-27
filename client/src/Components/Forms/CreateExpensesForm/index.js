@@ -32,9 +32,11 @@ class ExpensesForm extends Component {
 
     onFormSubmit = e => {
         e.preventDefault();
-        this.props.emma(this.state);
+        this.props.onFormSubmit(this.state);
         //We have to update the newly created data because at the time this data is created we have already made our request
         store.dispatch(fetchExpenses());
+
+        alert('Expenses was added Successfully')
     };
 
 
@@ -43,8 +45,8 @@ class ExpensesForm extends Component {
         return (
             <div>
                 <h3>ExpensesForm</h3>
-
-                <form onSubmit={this.onFormSubmit}>
+                <h2>Visit your Dashboard <a href='http://localhost:3000/dashboard'>Dashboard</a></h2>
+                <form>
                     <input
                         type="text"
                         placeholder="Description"
@@ -69,7 +71,7 @@ class ExpensesForm extends Component {
 
                     {/* Redirect after clicking */}
                     <button type="submit"
-                        onClick={() => this.props.history.push('/dashboard')}
+                        onClick={this.onFormSubmit}
                     >Submit</button>
 
 
