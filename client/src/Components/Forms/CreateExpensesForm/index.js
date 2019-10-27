@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'
-import { addExpense } from '../../redux/actions/expensesActions'
-import store from '../../redux/store'
+import { addExpense, fetchExpenses } from '../../../redux/actions/expensesActions'
+import store from '../../../redux/store'
 class ExpensesForm extends Component {
     state = {
         description: '',
@@ -32,19 +32,14 @@ class ExpensesForm extends Component {
 
     onFormSubmit = e => {
         e.preventDefault();
-
-        store.dispatch(addExpense(this.state));
-        this.setState({
-            description: '',
-            amount: '',
-            notes: ''
-        })
-
+        this.props.emma(this.state);
+        //We have to update the newly created data because at the time this data is created we have already made our request
+        store.dispatch(fetchExpenses());
     };
 
 
     render() {
-        console.log('From form com', this.props)
+        console.log('Form exp', this.props)
         return (
             <div>
                 <h3>ExpensesForm</h3>
@@ -72,9 +67,12 @@ class ExpensesForm extends Component {
                         onChange={this.onChangeInput}
                     ></textarea>
 
-                    <button type="submit">
-                        Submit
-          </button>
+                    {/* Redirect after clicking */}
+                    <button type="submit"
+                        onClick={() => this.props.history.push('/dashboard')}
+                    >Submit</button>
+
+
                 </form>
             </div>
         );
