@@ -3,7 +3,7 @@ import ExpensesList from '../ExpensesList/ExpensesList'
 import { connect } from 'react-redux'
 import { fetchExpenses } from '../../redux/actions/expensesActions';
 import getVisibleExpenses from '../../utils/getVisibleExpenses'
-
+import ExpensesSummary from '../ExpensesSummary'
 class Dashboard extends Component {
     componentDidMount() {
         this.props.dispatch(fetchExpenses())
@@ -15,7 +15,9 @@ class Dashboard extends Component {
         return (
             <div>
                 <h3>Dashboard</h3>
-                {!this.props.filteredExpenses ? 'Yes' : <ExpensesList />}
+                <ExpensesSummary />
+                <ExpensesList />
+
             </div>
         );
 
