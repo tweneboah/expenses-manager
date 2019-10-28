@@ -35,8 +35,8 @@ class ExpensesForm extends Component {
         this.props.onFormSubmit(this.state);
         //We have to update the newly created data because at the time this data is created we have already made our request
         store.dispatch(fetchExpenses());
-
-        alert('Expenses was added Successfully')
+        this.props.history.push('/dashboard')
+        // alert('Expenses was added Successfully')
     };
 
 

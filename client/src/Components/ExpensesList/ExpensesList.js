@@ -2,45 +2,45 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import store from '../../redux/store'
 //CUSTOM COMPONENTS
-import { fetchExpenses, deleteExpense } from '../../redux/actions/expensesActions';
+import { fetchExpenses, deleteExpense, editExpense } from '../../redux/actions/expensesActions';
 import getVisibleExpenses from '../../utils/getVisibleExpenses';
 import getExpensesTotal from '../../utils/totalExpenses';
 import ExpensesFilters from '../ExpensesFilters';
+import ExpensesListItem from './ExpensesListItem';
+
+
 
 class ExpensesList extends Component {
     componentDidMount() {
         store.dispatch(fetchExpenses());
     }
 
-    deleteExpenseItem = (id) => {
-        //Returning many response from a function
-        const loadedExpenses = store.dispatch(fetchExpenses())
-        const deletedItem = store.dispatch(deleteExpense(id));
 
-        return {
-            loadedExpenses,
-            deletedItem
-        }
+    deleteExpenseItem = (id) => {
+        store.dispatch(deleteExpense(id));
+        //Update the state after deleting
+        store.dispatch(fetchExpenses());
 
     }
 
+    //EDIT
+    editExpense = (id, update) => {
+        store.dispatch(editExpense(id))
+    }
     render() {
         return (
 
-            < div >
+            <div>
                 <ExpensesFilters />
                 <h1>Expenses List</h1>
                 {this.props.filteredExpenses ? this.props.filteredExpenses.map((expense) => {
-                    return (
-                        <div key={expense._id}>
-                            <h3>{expense.description}</h3>
-                            <p>{expense.amount}</p>
-                            <p>{expense.notes}</p>
-                            <button onClick={() => this.deleteExpenseItem(expense._id)
-                            }>Delete</button>
-                            <hr />
-                        </div>
-                    )
+                    //Passing the expense to this component to render
+                    return <ExpensesListItem expenses={expense} key={expense._id}
+
+                        delete={() => this.deleteExpenseItem(expense._id)}
+
+                        editExpense={`/expense/${expense._id}`}
+                    />
                 }) : 'Loading'}
             </div >
         );

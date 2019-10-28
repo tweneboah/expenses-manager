@@ -42,10 +42,13 @@ export const deleteExpense = (id) => {
 }
 
 //EDIT_EXPENSE
-export const editExpense = (id, updates) => {
-    return {
-        type: "EDIT_EXPENSE",
-        id,
-        updates
-    };
+export const editExpense = (id, updates, history) => {
+    return (dispatch) => {
+        axios.post(`/api/expense/update/${id}`, updates).then((res) => {
+            dispatch({
+                type: 'EDIT_EXPENSE',
+                payload: res.data
+            })
+        })
+    }
 };

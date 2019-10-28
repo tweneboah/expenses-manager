@@ -12,8 +12,6 @@ class ExpensesFilters extends Component {
         store.dispatch(setTextFilter(e.target.value))
     }
     render() {
-
-        console.log('Filters', this.props.filters)
         return (
             <div>
                 <h2>Filter by text</h2>

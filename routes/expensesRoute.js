@@ -15,6 +15,7 @@ expensesRoute.post("/api/expenses", (req, res) => {
     });
 });
 
+
 //GET ALL EXPENSES
 expensesRoute.get("/api/expenses", (req, res) => {
     Expense.find((err, expenses) => {
@@ -40,5 +41,49 @@ expensesRoute.delete('/api/expenses/:id', (req, res) => {
             return res.json('Item deleted Successfully')
         }
     })
+});
+
+
+
+//SHOW A SINGLE EXPENSE
+
+expensesRoute.get('/api/expense/:id', (req, res) => {
+    Expense.findById(req.params.id, (err, foundedExpenses) => {
+        if (err) {
+            return res.json({
+                success: false,
+                err
+            })
+        } else {
+            return res.json(foundedExpenses)
+        }
+    });
+});
+
+
+expensesRoute.post('/api/expense/update/:id', (req, res) => {
+    Expense.findById(req.params.id, (err, foundedExpenses) => {
+        if (!foundedExpenses) {
+            res.json('No Expenses found')
+        } else {
+            //Pull out the data of this expense from req
+            foundedExpenses.description = req.body.description;
+            foundedExpenses.notes = req.body.notes;
+            foundedExpenses.amount = req.body.amount
+
+            //Save
+            foundedExpenses.save((err, data) => {
+                if (err) {
+                    return res.json(err)
+                } else {
+
+                }
+            })
+        }
+    })
 })
+
+
+
+
 module.exports = expensesRoute;
