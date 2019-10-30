@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import store from "./redux/store";
 import { Provider } from "react-redux";
 
-import "./App.css";
 //CUSTOM COMPONENTS
 import Landing from './Components/Landing'
 import Header from './Components/Header'

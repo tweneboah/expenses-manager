@@ -41,41 +41,64 @@ class ExpensesForm extends Component {
 
 
     render() {
-        console.log('Form exp', this.props)
+
         return (
-            <div>
-                <h3>ExpensesForm</h3>
-                <h2>Visit your Dashboard <a href='/dashboard'>Dashboard</a></h2>
-                <form>
-                    <input
-                        type="text"
-                        placeholder="Description"
-                        autoFocus
-                        name="description"
-                        onChange={this.onChangeInput}
-                    />
+            <div className='container'>
+                <div className='row justify-content-md-center m-5'>
+                    <div className='col-md-6 '>
+                        <h3 className='text-align-center'>Add Expenses</h3>
+                        <div className='card'>
+                            <div className='card-body'>
+                                <form>
+                                    <div class="form-group ">
 
-                    <input
-                        type="number"
-                        placeholder="amount"
-                        name="amount"
-                        onChange={this.onAmountChange}
-                    />
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            placeholder="Description"
+                                            autoFocus
+                                            name="description"
+                                            onChange={this.onChangeInput}
+                                        />
+
+                                    </div>
+                                    <div class="form-group">
+
+                                        <input
+                                            type="number"
+                                            class="form-control"
+                                            placeholder="amount"
+                                            name="amount"
+                                            onChange={this.onAmountChange}
+                                        />
+                                    </div>
 
 
-                    <textarea
-                        placeholder="Add notes (optional)"
-                        name="notes"
-                        onChange={this.onChangeInput}
-                    ></textarea>
-
-                    {/* Redirect after clicking */}
-                    <button type="submit"
-                        onClick={this.onFormSubmit}
-                    >Submit</button>
 
 
-                </form>
+                                    <textarea
+                                        placeholder="Add notes (optional)"
+                                        name="notes"
+                                        class="form-control"
+                                        onChange={this.onChangeInput}
+                                    ></textarea>
+
+
+                                    {/* Redirect after clicking */}
+                                    <button type="submit"
+                                        class="btn btn-primary m-3"
+                                        onClick={this.onFormSubmit}
+                                    >Add Expenses</button>
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
             </div>
         );
     }
