@@ -55,9 +55,8 @@ class ExpensesForm extends Component {
                                         <input
                                             type="text"
                                             class="form-control"
-                                            placeholder="Description"
+                                            placeholder="Expense Title"
                                             autoFocus
-                                            name="description"
                                             onChange={this.onChangeInput}
                                         />
 
@@ -77,7 +76,8 @@ class ExpensesForm extends Component {
 
 
                                     <textarea
-                                        placeholder="Add notes (optional)"
+                                        placeholder="Description"
+                                        required
                                         name="notes"
                                         class="form-control"
                                         onChange={this.onChangeInput}

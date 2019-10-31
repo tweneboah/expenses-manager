@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchExpenses } from '../../redux/actions/expensesActions';
 import getVisibleExpenses from '../../utils/getVisibleExpenses';
 import totaleExpenses from '../../utils/totalExpenses';
-
+import '../../assets/css/expensesSummary.css'
 class EpensesSummary extends Component {
 
     componentDidMount() {
@@ -13,9 +13,21 @@ class EpensesSummary extends Component {
         console.log('Exp sumary', this.props)
         return (
             <div>
-                <h2>EpensesSummary</h2>
-                <h3>Total expenses is : {this.props.expenses}</h3>
-                <h3>Total expenses is : {this.props.expensesTotalLength.length}</h3>
+
+
+
+                <div className='main_wrapper'>
+                    <div className='content_item1'>
+                        <h2>Total Expenses : Ghs  {this.props.expenses}</h2>
+                        <hr />
+                        <p>Number of Expenses : {this.props.expensesTotalLength.length}</p>
+                    </div>
+
+                    {/* <div>
+                        <h2>Total : 900</h2>
+                        <p>Grand Total</p>
+                    </div> */}
+                </div>
             </div>
         );
     }

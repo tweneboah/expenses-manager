@@ -1,0 +1,25 @@
+.main_wrapper {
+    display: flex;
+   background: rgb(158, 94, 94);
+   flex-direction: row;
+   justify-content: flex-end;
+   align-items: center;
+   margin-top: 10px;
+   margin-bottom: 20px;
+}
+
+.content_item1 h2{
+  align-self: center;
+  color: aliceblue;
+  padding-top: 30px;
+ padding-right: 20px;
+ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.content_item1 p{
+    align-self: stretch;
+    color: aliceblue;
+    padding-right: 20px;
+    font-size: 1.5rem;
+    
+  }

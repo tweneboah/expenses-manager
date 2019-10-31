@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import store from '../../redux/store'
+import { Link } from 'react-router-dom'
 //CUSTOM COMPONENTS
 import { fetchExpenses, deleteExpense, editExpense } from '../../redux/actions/expensesActions';
 import getVisibleExpenses from '../../utils/getVisibleExpenses';
@@ -32,16 +33,51 @@ class ExpensesList extends Component {
 
             <div>
                 <ExpensesFilters />
-                <h1>Expenses List</h1>
-                {this.props.filteredExpenses ? this.props.filteredExpenses.map((expense) => {
-                    //Passing the expense to this component to render
-                    return <ExpensesListItem expenses={expense} key={expense._id}
+                <div id="invoice">
 
-                        delete={() => this.deleteExpenseItem(expense._id)}
 
-                        editExpense={`/expense/${expense._id}`}
-                    />
-                }) : 'Loading'}
+                    <div class="invoice overflow-auto">
+                        <div style={{ minWidth: '600px' }}>
+
+                            <main>
+
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <thead>
+                                        <tr>
+                                            <th>DESCRIPTION</th>
+                                            <th class="text-left">Amount</th>
+                                            <th class="text-right">DATE</th>
+
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+
+                                        {this.props.filteredExpenses.map((expense) => {
+                                            return <tr>
+                                                {/* <td class="no">01</td> */}
+                                                <td class="text-left"><h3><Link to={`/expense/${expense._id}`}>{expense.description}</Link></h3>{expense.notes}</td>
+                                                <td class="unit">$40.00</td>
+                                                <td class="qty">20/10/19</td>
+
+                                            </tr>
+                                        })}
+
+                                    </tbody>
+
+                                </table>
+
+                            </main>
+                            <footer>
+                                All the data entered are valid
+        </footer>
+                        </div>
+
+                        <div></div>
+                    </div>
+                </div>
+
             </div >
         );
     }

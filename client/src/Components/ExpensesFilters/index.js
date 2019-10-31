@@ -13,14 +13,21 @@ class ExpensesFilters extends Component {
     }
     render() {
         return (
-            <div>
-                <h2>Filter by text</h2>
-                <form>
-                    <input placeholder='Search By Text'
-                        value={this.props.filters.text}
-                        onChange={this.onInputChange}
-                    />
-                </form>
+            <div className='container'>
+                <div className='row ustify-content-md-center'>
+                    <div className='col'>
+                        <form>
+                            <div class="form-group w-50" style={{ minWidth: '20%' }}>
+
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Search By Text"
+                                    value={this.props.filters.text}
+                                    onChange={this.onInputChange} />
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
             </div>
         );
     }
