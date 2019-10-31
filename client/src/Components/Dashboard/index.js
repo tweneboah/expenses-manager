@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import ExpensesList from '../ExpensesList/ExpensesList'
 import { connect } from 'react-redux'
 import { fetchExpenses } from '../../redux/actions/expensesActions';
+import { setStartDate, setEndDate } from '../../redux/actions/expensesFilterAction'
 import getVisibleExpenses from '../../utils/getVisibleExpenses'
 import ExpensesSummary from '../ExpensesSummary';
 import '../../assets/css/dashboard.css'
 class Dashboard extends Component {
     componentDidMount() {
-        this.props.dispatch(fetchExpenses())
+        this.props.dispatch(fetchExpenses());
+
+
     }
 
     render() {
