@@ -77,7 +77,7 @@ class ExpensesForm extends Component {
         });
         //We have to update the newly created data because at the time this data is created we have already made our request
         store.dispatch(fetchExpenses());
-        //this.props.history.push('/dashboard')
+        this.props.history.push('/dashboard')
         // alert('Expenses was added Successfully')
 
         console.log(this.state)
