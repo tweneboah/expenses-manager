@@ -67,9 +67,10 @@ expensesRoute.post('/api/expense/update/:id', (req, res) => {
             res.json('No Expenses found')
         } else {
             //Pull out the data of this expense from req
-            foundedExpenses.description = req.body.description;
-            foundedExpenses.notes = req.body.notes;
-            foundedExpenses.amount = req.body.amount
+            foundedExpenses.title = req.body.title;
+            foundedExpenses.decription = req.body.description;
+            foundedExpenses.amount = req.body.amount;
+            foundedExpenses.createdAt = req.body.createdAt
 
             //Save
             foundedExpenses.save((err, data) => {

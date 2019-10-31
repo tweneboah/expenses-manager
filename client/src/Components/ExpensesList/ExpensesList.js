@@ -8,6 +8,7 @@ import getVisibleExpenses from '../../utils/getVisibleExpenses';
 import getExpensesTotal from '../../utils/totalExpenses';
 import ExpensesFilters from '../ExpensesFilters';
 import ExpensesListItem from './ExpensesListItem';
+import moment from 'moment';
 
 
 
@@ -29,9 +30,10 @@ class ExpensesList extends Component {
         store.dispatch(editExpense(id))
     }
     render() {
+        console.log(this.props.filteredExpenses)
         return (
 
-            <div>
+            < div >
                 <ExpensesFilters />
                 <div id="invoice">
 
@@ -57,9 +59,12 @@ class ExpensesList extends Component {
                                         {this.props.filteredExpenses.map((expense) => {
                                             return <tr>
                                                 {/* <td class="no">01</td> */}
-                                                <td class="text-left"><h3><Link to={`/expense/${expense._id}`}>{expense.description}</Link></h3>{expense.notes}</td>
-                                                <td class="unit">$40.00</td>
-                                                <td class="qty">20/10/19</td>
+                                                <td class="text-left"><h3><Link to={`/expense/${expense._id}`}>{expense.title}</Link></h3>{expense.description}</td>
+                                                <td class="unit">{expense.amount}</td>
+                                                {/* Convert the date into actual date format 
+                                                  Remember also that moment accept a number but our value is in string so will cnvert to number then we pass to moment to format it
+                                                */}
+                                                <td class="qty">{moment(parseInt(expense.createdAt)).format("MMM Do, YYYY")}</td>
 
                                             </tr>
                                         })}

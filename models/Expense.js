@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
 const expensesSchema = new mongoose.Schema({
+    title: String,
     description: String,
-    notes: String,
     amount: Number,
     createdAt: String
 });
