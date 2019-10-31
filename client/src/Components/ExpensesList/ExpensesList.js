@@ -64,7 +64,7 @@ class ExpensesList extends Component {
                                                 {/* Convert the date into actual date format 
                                                   Remember also that moment accept a number but our value is in string so will cnvert to number then we pass to moment to format it
                                                 */}
-                                                <td class="qty">{moment(parseInt(expense.createdAt)).format("MM DD, YYYY")}</td>
+                                                <td class="qty">{moment(parseInt(expense.createdAt)).format("MMM Do, YYYY")}</td>
 
                                             </tr>
                                         })}

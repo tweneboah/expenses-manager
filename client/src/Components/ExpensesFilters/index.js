@@ -47,6 +47,7 @@ class ExpensesFilters extends Component {
                 <div className='row ustify-content-md-center'>
                     <div className='col'>
                         <form>
+                            <h3>Filter Expenses</h3>
                             <div class="form-group w-50" style={{ minWidth: '20%' }}>
 
                                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Search By Text"
