@@ -2,9 +2,12 @@ require('dotenv').config()
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+//Models
+const User = require('./models/User');
 const bodyParser = require("body-parser");
 const path = require('path')
-
+const passport = require('passport');
+const LocalStrategy = require('passport-local')
 //Routes
 const expensesRoute = require("./routes/expensesRoute");
 
@@ -31,6 +34,20 @@ if (app.get('env') === 'development') {
     .then(() => console.log("DB Connected successfully"));
 
 }
+
+//PASSPORT-CONFIGURATION
+app.use(require('express-session')({
+  secret: 'Am on the way',
+  resave: false,
+  saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 
 //SERVING REACT FILES
 app.use(express.static(path.join(__dirname, 'client/build')));
