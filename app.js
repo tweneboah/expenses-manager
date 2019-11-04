@@ -7,11 +7,14 @@ const User = require('./models/User');
 const bodyParser = require("body-parser");
 const path = require('path')
 const passport = require('passport');
-const LocalStrategy = require('passport-local')
+const LocalStrategy = require('passport-local');
+const session = require('express-session');
 //Routes
 const expensesRoute = require("./routes/expensesRoute");
-
+const userRoute = require('./routes/userRoute')
 //DB CONNECTION
+
+
 
 if (app.get('env') === 'development') {
   mongoose
@@ -59,7 +62,7 @@ app.use(bodyParser.json()); //Display json format
 
 //USING ROUTES
 app.use("/", expensesRoute);
-
+app.use('/', userRoute);
 
 
 // Right before your app.listen(), add this:

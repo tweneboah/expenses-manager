@@ -4,8 +4,8 @@ import moment from 'moment';
 
 const filtersDefaultState = {
     text: "",
-    startDate: moment().startOf("month"), //we want to set default to at the begining of the current month
-    endDate: moment().endOf("month") //we want to set default to at the end of the current month
+    startDate: moment().startOf("year"), //we want to set default to at the begining of the current month
+    endDate: moment().endOf("year") //we want to set default to at the end of the current month
 
 
 };

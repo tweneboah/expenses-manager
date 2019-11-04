@@ -9,8 +9,8 @@ import { SingleDatePicker } from 'react-dates'
 import { fetchExpenses } from '../../../redux/actions/expensesActions'
 import store from '../../../redux/store';
 
-const momentss = moment()
-console.log(momentss)
+
+
 class ExpensesForm extends Component {
     state = {
         title: '',
